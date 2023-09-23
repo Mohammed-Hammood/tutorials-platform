@@ -1,0 +1,26 @@
+<header id="headerWrapper">
+    <nav>
+        <div class="group">
+            <a href="{% url 'products:home' %}">
+                <span class="fa-solid fa-home"></span>
+            </a>
+            <a href="{% url 'products:accessed-products' %}">Subscription</a>
+        </div>
+        <div class="group">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'accounts:profile' request.user.username %}" id="username">
+                    <span>{{ request.user.username }}</span>
+                </a>
+                <a href="{% url 'accounts:logout' %}">
+                    <span>Sign out</span>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}">
+                    <span>Sign in</span>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </a>
+            {% endif %}
+        </div>
+    </nav>
+</header>

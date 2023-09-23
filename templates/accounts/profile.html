@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+    <div class="profile-page">
+        <div class="content">
+            <div>
+                <img src="{% static 'images/user-icon.png' %}" alt="User" width="100px" height="100px" />
+            </div>
+            <div>{{ user.username }}</div>
+            <div>
+                <span>Last login</span>
+                <span>{{ user.last_login }}</span>
+            </div>
+            <div>
+                <span>Joined</span>
+                <span>{{ user.date_joined }}</span>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

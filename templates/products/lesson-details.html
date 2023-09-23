@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="lesson-details-page">
+       <div class="lesson">
+            <div class="title">{{ lesson.title }}</div>
+            <div class="video">
+                <video  controls >
+                    <source src="{{ lesson.video_url }}" type="video/mp4" />
+                    Browser does not support the current format
+                </video>
+            </div>
+            <div class="description">{{ lesson.description }}</div>
+            <div class="owner">
+                <span>Owner</span>
+                <a href="{% url 'accounts:profile' product.owner.username %}">{{ product.owner.username }}</a>
+            </div>
+       </div>
+    </div>
+{% endblock body %}

@@ -1,0 +1,26 @@
+.products-list-page {
+    display: flex;
+    justify-content: center;
+    .content {
+        width:100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .product {
+            background-color: var(--white);
+            padding:1rem;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border:1px solid var(--border-color);
+            gap:1rem;
+            .title {
+                font-size: 1.1rem;
+                font-weight: 900;
+                color: var(--black);
+            }   
+        }
+    }
+}

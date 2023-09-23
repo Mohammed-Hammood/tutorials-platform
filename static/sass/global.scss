@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    background: transparent;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--main-color) transparent;
+    text-decoration: none;
+    color:inherit;
+
+}
+
+
+main[id=main_content] {
+    margin-top: 3.3rem;
+    min-height: 100vmin;
+    padding: 1rem;
+
+    @media (max-width: 750px) {
+        padding: .5rem;
+    }
+}
+
+svg {
+    height: 1rem;
+    width: 1rem;
+}
+
+input {
+    border:none;
+    border-radius: 5px;
+    width:100%;
+    padding:.5rem;
+    outline:1px solid var(--border-color);
+    &:focus, &:hover {
+        outline:1px solid var(--main-color);
+    }
+}
+
+button {
+    background: var(--main-color);
+    outline:none;
+    border:none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--base-white);
+    &:hover {
+        background:var(--main-color2);
+    }
+    &:active {
+        transform: scale(1.04);
+    }
+    &.default {
+        background: var(--silver);
+        color:var(--black);
+    }
+}
+a {
+    color: var(--dark-blue);
+}
+
+
+html {
+    background: linear-gradient(to top, var(--main-color), var(--black));
+    background-attachment: fixed;
+    line-height: 1.3;
+}

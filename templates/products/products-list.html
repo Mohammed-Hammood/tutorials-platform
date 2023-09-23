@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="products-list-page">
+        <div class="content">
+            {% for product in products %}
+                <div class="product">
+                    <div class="title">{{ product.title }}</div>
+                    <div class="description">{{ product.description }}</div>
+                    <div class="owner">
+                        <span>Owner</span>
+                        <a href="{% url 'accounts:profile' product.owner.username %}">{{ product.owner.username }}</a>
+                    </div>
+                    <a href="{% url 'products:product-details' product.id %}">Details</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body %}

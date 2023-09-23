@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="login-page">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            {% if form.errors %}
+                <p>{{ form.errors }} </p>
+            {% endif %}
+            {{ form|crispy }}
+            <p class="text-center">
+                Don't have an account? <a href="{% url 'accounts:register' %}">Create an account</a>.
+            </p>
+            <div class="buttons">
+                <button class="btn btn-primary" type="submit">Login</button>
+                <button class="default" type="button" onclick="form.reset()">Clear</button>
+            </div>
+        </form>
+    </div>
+{% endblock body %}
