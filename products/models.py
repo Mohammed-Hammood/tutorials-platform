@@ -7,7 +7,6 @@ User = get_user_model()
 
 class Product(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(null=True, blank=True, upload_to="images/products/")
     title = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -26,7 +25,6 @@ class Lesson(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     video_url = models.URLField()
     products = models.ManyToManyField(Product, related_name='lessons')
-    image = models.ImageField(null=True, blank=True, upload_to="images/lessions/")
     duration = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -50,9 +48,9 @@ class ProductAccess(models.Model):
     
 
     def save(self, *args, **kwargs):
-        if ProductAccess.objects.filter(user=self.user, product=self.product).exists():
+        if ProductAccess.objects.filter(user=self.user, product=self.product).exclude(id=self.id).exists():
             raise Exception(f'{self.user} already has access to product ({self.product})')
-        super(LessonProgress, self).save(*args, **kwargs)
+        super(ProductAccess, self).save(*args, **kwargs)
 
 
 class LessonProgress(models.Model):
