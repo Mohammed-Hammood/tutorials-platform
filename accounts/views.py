@@ -16,7 +16,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("accounts:profile")
+                return redirect("accounts:profile", username=user.username)
             else:
                 messages.error(request, "Invalid username or password.")
         messages.error(request, "Invalid username or password.")

@@ -269,4 +269,12 @@ footer {
   min-height: 100px;
   background: teal;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .content {
+  text-align: center;
+  color: var(--white);
 }

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'products',
     'django_sass',
     'rest_framework',
+    'rest_framework.authtoken',
     'fontawesomefree',
     'accounts',
     'crispy_forms',
