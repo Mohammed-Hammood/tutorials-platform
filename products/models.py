@@ -16,13 +16,12 @@ class Product(models.Model):
     def __str__(self) -> str:
         return self.title
 
-
+ 
     def get_absolute_url(self):
         return reverse("products:product-detail", kwargs={"pk": self.pk})
 
 
 class Lesson(models.Model):
-
     title = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     video_url = models.URLField()
@@ -36,8 +35,6 @@ class Lesson(models.Model):
     def __str__(self) -> str:
         return self.title
 
- 
-
     def get_absolute_url(self):
         return reverse("products:lession-detail", kwargs={"pk": self.pk})
 
@@ -50,6 +47,12 @@ class ProductAccess(models.Model):
 
     def __str__(self) -> str:
         return f'user {self.user.id} has access to product {self.product.title}'
+    
+
+    def save(self, *args, **kwargs):
+        if ProductAccess.objects.filter(user=self.user, product=self.product).exists():
+            raise Exception(f'{self.user} already has access to product ({self.product})')
+        super(LessonProgress, self).save(*args, **kwargs)
 
 
 class LessonProgress(models.Model):

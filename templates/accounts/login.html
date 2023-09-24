@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% block body %}
     <div class="login-page">
         <form method="post">
@@ -8,7 +7,7 @@
             {% if form.errors %}
                 <p>{{ form.errors }} </p>
             {% endif %}
-            {{ form|crispy }}
+            {{ form }}
             <p class="text-center">
                 Don't have an account? <a href="{% url 'accounts:register' %}">Create an account</a>.
             </p>

@@ -17,7 +17,14 @@ class ProductAccessAdmin(admin.ModelAdmin):
 
     
 
+class LessonProgressAdmin(admin.ModelAdmin):
+    list_display = ['id' , 'lesson', 'user', 'watched_time', 'view_status']
+    list_editable = [ 'lesson', 'user', 'watched_time', 'view_status']
+    list_filter = ['view_status']
+
+    
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(ProductAccess, ProductAccessAdmin)
-admin.site.register(LessonProgress)
+admin.site.register(LessonProgress, LessonProgressAdmin)

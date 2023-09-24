@@ -8,10 +8,10 @@
                 <span>Owner</span>
                 <a href="{% url 'accounts:profile' product.owner.username %}">{{ product.owner.username }}</a>
             </div>
-            <div class="awner">Lessons {{ product.lessons.count }}</div>
-            <div>
+            <div class="owner">Lessons {{ product.lessons.count }}</div>
+            <div class="lessons_list">
                 {% for lesson in product.lessons.all %}
-                    <a href="{% url "products:lesson-details" product.id lesson.id %}">{{ lesson.title }}</a>
+                    <a href="{% url "products:lesson-details" product.id lesson.id %}">{{ forloop.counter }}. {{ lesson.title }}</a>
                 {% endfor %}
             </div>
        </div>

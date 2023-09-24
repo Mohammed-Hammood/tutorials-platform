@@ -210,6 +210,12 @@ header[id=headerWrapper] nav .group span {
   padding: 1rem;
 }
 
+.product-details-page .product .lessons_list, .product-details-page .lesson .lessons_list, .lesson-details-page .product .lessons_list, .lesson-details-page .lesson .lessons_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .product-details-page .product .video, .product-details-page .lesson .video, .lesson-details-page .product .video, .lesson-details-page .lesson .video {
   width: 100%;
   height: 100%;
